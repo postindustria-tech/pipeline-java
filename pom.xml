@@ -27,7 +27,7 @@
 
     <groupId>com.51degrees</groupId>
     <artifactId>pipeline</artifactId>
-    <version>4.4.13-SNAPSHOT</version>
+    <version>${pipeline-snapshot-version}</version>
     <packaging>pom</packaging>
 
     <name>51Degrees :: Pipeline</name>
@@ -60,6 +60,8 @@
     </modules>
 
     <properties>
+        <pipeline-snapshot-version>4.4.27-SNAPSHOT</pipeline-snapshot-version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
