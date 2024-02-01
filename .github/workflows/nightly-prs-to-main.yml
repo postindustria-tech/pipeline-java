@@ -12,7 +12,7 @@ jobs:
     uses: 51Degrees/common-ci/.github/workflows/nightly-prs-to-main.yml@main
     with:
       repo-name: ${{ github.event.repository.name }}
-      common-ci-ref: d09214d2ceed853856da65a33a2dc7c34bcde775
+      common-ci-ref: 43fadc25d2aecfa3b43fb755ac7e5478a98b840e
     secrets:
       token: ${{ secrets.ACCESS_TOKEN }}
       TestResourceKey: ${{ secrets.SUPER_RESOURCE_KEY}}
