@@ -15,3 +15,4 @@ jobs:
     secrets:
       token: ${{ secrets.ACCESS_TOKEN }}
       TestResourceKey: ${{ secrets.SUPER_RESOURCE_KEY}}
+      common-ci-ref: log-java-test-launch
