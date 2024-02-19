@@ -25,7 +25,7 @@ package fiftyone.pipeline.web.services;
 import fiftyone.pipeline.core.data.ElementData;
 import fiftyone.pipeline.core.data.FlowData;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import static fiftyone.pipeline.engines.fiftyone.data.SetHeadersData.*;
 import static fiftyone.pipeline.engines.fiftyone.flowelements.SetHeadersElement.*;

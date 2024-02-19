@@ -24,7 +24,7 @@ package fiftyone.pipeline.web.services;
 
 import fiftyone.pipeline.core.data.FlowData;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import static fiftyone.pipeline.web.Constants.HTTPCONTEXT_FLOWDATA;
 

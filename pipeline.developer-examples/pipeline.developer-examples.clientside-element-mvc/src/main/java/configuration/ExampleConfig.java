@@ -22,10 +22,10 @@
 
 package configuration;
 
-//import fiftyone.pipeline.web.mvc.components.FiftyOneInterceptor;
-//import fiftyone.pipeline.web.mvc.configuration.FiftyOneInterceptorConfig;
-//import fiftyone.pipeline.web.mvc.configuration.FiftyOneInterceptorConfigDefault;
-//import org.springframework.beans.factory.annotation.Autowired;
+import fiftyone.pipeline.web.mvc.components.FiftyOneInterceptor;
+import fiftyone.pipeline.web.mvc.configuration.FiftyOneInterceptorConfig;
+import fiftyone.pipeline.web.mvc.configuration.FiftyOneInterceptorConfigDefault;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -34,36 +34,36 @@ import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-//import javax.servlet.ServletContext;
-//
-//import static fiftyone.pipeline.web.mvc.components.FiftyOneInterceptor.enableClientsideProperties;
+import jakarta.servlet.ServletContext;
+
+import static fiftyone.pipeline.web.mvc.components.FiftyOneInterceptor.enableClientsideProperties;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan({"controller"/*,"fiftyone.pipeline.web.mvc"*/})
+@ComponentScan({"controller","fiftyone.pipeline.web.mvc"})
 public class ExampleConfig implements WebMvcConfigurer {
 
-//    public ExampleConfig() {
-//        super();
-//    }
-//
-//    @Override
-//    public void addViewControllers(final ViewControllerRegistry registry) {
-//        enableClientsideProperties(registry);
-//    }
-//
-//    @Autowired
-//    ServletContext servletContext;
-//
-//    @Bean
-//    public FiftyOneInterceptorConfig fiftyOneInterceptorConfig() {
-//        final FiftyOneInterceptorConfigDefault bean = new FiftyOneInterceptorConfigDefault();
-//
-//        bean.setDataFilePath(servletContext.getRealPath("/WEB-INF/51Degrees.xml"));
-//        bean.setClientsidePropertiesEnabled(true);
-//
-//        return bean;
-//    }
+    public ExampleConfig() {
+        super();
+    }
+
+    @Override
+    public void addViewControllers(final ViewControllerRegistry registry) {
+        enableClientsideProperties(registry);
+    }
+
+    @Autowired
+    ServletContext servletContext;
+
+    @Bean
+    public FiftyOneInterceptorConfig fiftyOneInterceptorConfig() {
+        final FiftyOneInterceptorConfigDefault bean = new FiftyOneInterceptorConfigDefault();
+
+        bean.setDataFilePath(servletContext.getRealPath("/WEB-INF/51Degrees.xml"));
+        bean.setClientsidePropertiesEnabled(true);
+
+        return bean;
+    }
 
     @Bean
     public ViewResolver viewResolver() {
@@ -76,11 +76,11 @@ public class ExampleConfig implements WebMvcConfigurer {
         return bean;
     }
 
-//    @Autowired
-//    FiftyOneInterceptor fiftyOneInterceptor;
-//
-//    @Override
-//    public void addInterceptors(final InterceptorRegistry registry) {
-//        registry.addInterceptor(fiftyOneInterceptor);
-//    }
+    @Autowired
+    FiftyOneInterceptor fiftyOneInterceptor;
+
+    @Override
+    public void addInterceptors(final InterceptorRegistry registry) {
+        registry.addInterceptor(fiftyOneInterceptor);
+    }
 }

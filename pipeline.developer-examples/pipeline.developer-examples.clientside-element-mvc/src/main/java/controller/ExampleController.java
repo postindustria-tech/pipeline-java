@@ -39,35 +39,29 @@ import java.util.Random;
 @RequestMapping("/")
 public class ExampleController {
 
-//    private final FlowDataProvider flowDataProvider;
-//
-//    private final Random rand = new Random();
-//
-//    @Autowired
-//    public ExampleController(FlowDataProvider flowDataProvider) {
-//        this.flowDataProvider = flowDataProvider;
-//    }
-//
-//    @RequestMapping(method = RequestMethod.GET)
-//    public String get(ModelMap model, HttpServletRequest request) {
-//    	String message = "";
-//        try (FlowData data = flowDataProvider.getFlowData(request)) {
-//	        message = "With a date of birth of " +
-//	        	data.getEvidence().get("cookie.date-of-birth") +
-//	        	", your star sign is " +
-//	        	data.get(StarSignData.class).getStarSign();
-//        }
-//        catch (Exception e) {
-//        	message = e.getMessage();
-//        }
-//        model.addAttribute("message", message);
-//        model.addAttribute("version", rand.nextInt());
-//        return "example";
-//    }
+    private final FlowDataProvider flowDataProvider;
+
+    private final Random rand = new Random();
+
+    @Autowired
+    public ExampleController(FlowDataProvider flowDataProvider) {
+        this.flowDataProvider = flowDataProvider;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public String get(ModelMap model, HttpServletRequest request) {
-        model.addAttribute("message", "Web-MVC");
+    	String message = "";
+        try (FlowData data = flowDataProvider.getFlowData(request)) {
+	        message = "With a date of birth of " +
+	        	data.getEvidence().get("cookie.date-of-birth") +
+	        	", your star sign is " +
+	        	data.get(StarSignData.class).getStarSign();
+        }
+        catch (Exception e) {
+        	message = e.getMessage();
+        }
+        model.addAttribute("message", message);
+        model.addAttribute("version", rand.nextInt());
         return "example";
     }
 }

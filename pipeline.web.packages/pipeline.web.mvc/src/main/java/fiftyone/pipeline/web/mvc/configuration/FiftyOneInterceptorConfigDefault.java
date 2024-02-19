@@ -22,7 +22,7 @@
 
 package fiftyone.pipeline.web.mvc.configuration;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

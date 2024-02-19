@@ -24,7 +24,7 @@ package fiftyone.pipeline.web.mvc.services;
 
 import fiftyone.pipeline.core.data.FlowData;
 import fiftyone.pipeline.web.services.WebRequestEvidenceServiceCore;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import static fiftyone.pipeline.core.Constants.*;

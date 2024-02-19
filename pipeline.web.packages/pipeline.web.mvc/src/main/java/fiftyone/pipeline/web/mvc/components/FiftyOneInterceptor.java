@@ -41,11 +41,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Unmarshaller;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import java.io.File;
 
@@ -59,7 +58,7 @@ import static fiftyone.pipeline.web.Constants.CORE_JSON_NAME;
  * 51Degrees JavaScript.
  */
 @Component
-public class FiftyOneInterceptor extends HandlerInterceptorAdapter {
+public class FiftyOneInterceptor implements HandlerInterceptor {
     public Pipeline pipeline;
 
     private final PipelineResultService resultService;
@@ -130,12 +129,9 @@ public class FiftyOneInterceptor extends HandlerInterceptorAdapter {
         
         // Set the Client Hints request headers
         uachService.setResponseHeaders(request, response);
-        
-        if (fiftyOneJsService.serveJS(request,  response) == false &&
-                fiftyOneJsService.serveJson(request, response) == false) {
-            return super.preHandle(request, response, handler);
-        }
-        return false;
+
+        return !fiftyOneJsService.serveJS(request, response) &&
+                !fiftyOneJsService.serveJson(request, response);
     }
 
     @Override

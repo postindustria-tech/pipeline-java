@@ -36,6 +36,10 @@
     <name>51Degrees :: Pipeline :: Developer Examples :: Client-Side Element :: MVC</name>
     <url>https:51degrees.com</url>
 
+    <properties>
+        <spring-webmvc.version>6.1.4</spring-webmvc.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -51,7 +55,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>6.1.4</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
