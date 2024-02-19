@@ -27,7 +27,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Example page</title>
-<script src="/51Degrees.core.js"></script>
+<script src="./51Degrees.core.js"></script>
 </head>
 <body>
     <p>Star Sign : ${message}</p>
