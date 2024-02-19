@@ -25,13 +25,13 @@ package controller;
 import fiftyone.pipeline.developerexamples.clientsideelement.data.StarSignData;
 import fiftyone.pipeline.core.data.FlowData;
 import fiftyone.pipeline.web.mvc.components.FlowDataProvider;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Random;
 
 //! [class]
@@ -39,29 +39,35 @@ import java.util.Random;
 @RequestMapping("/")
 public class ExampleController {
 
-    private final FlowDataProvider flowDataProvider;
-
-    private final Random rand = new Random();
-
-    @Autowired
-    public ExampleController(FlowDataProvider flowDataProvider) {
-        this.flowDataProvider = flowDataProvider;
-    }
+//    private final FlowDataProvider flowDataProvider;
+//
+//    private final Random rand = new Random();
+//
+//    @Autowired
+//    public ExampleController(FlowDataProvider flowDataProvider) {
+//        this.flowDataProvider = flowDataProvider;
+//    }
+//
+//    @RequestMapping(method = RequestMethod.GET)
+//    public String get(ModelMap model, HttpServletRequest request) {
+//    	String message = "";
+//        try (FlowData data = flowDataProvider.getFlowData(request)) {
+//	        message = "With a date of birth of " +
+//	        	data.getEvidence().get("cookie.date-of-birth") +
+//	        	", your star sign is " +
+//	        	data.get(StarSignData.class).getStarSign();
+//        }
+//        catch (Exception e) {
+//        	message = e.getMessage();
+//        }
+//        model.addAttribute("message", message);
+//        model.addAttribute("version", rand.nextInt());
+//        return "example";
+//    }
 
     @RequestMapping(method = RequestMethod.GET)
     public String get(ModelMap model, HttpServletRequest request) {
-    	String message = "";
-        try (FlowData data = flowDataProvider.getFlowData(request)) {
-	        message = "With a date of birth of " +
-	        	data.getEvidence().get("cookie.date-of-birth") +
-	        	", your star sign is " +
-	        	data.get(StarSignData.class).getStarSign();
-        }
-        catch (Exception e) {
-        	message = e.getMessage();
-        }
-        model.addAttribute("message", message);
-        model.addAttribute("version", rand.nextInt());
+        model.addAttribute("message", "Web-MVC");
         return "example";
     }
 }
