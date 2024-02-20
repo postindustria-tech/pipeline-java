@@ -42,7 +42,6 @@
         <module>pipeline.developer-examples.cloud-engine</module>
         <module>pipeline.developer-examples.clientside-element</module>
         <module>pipeline.developer-examples.clientside-element-mvc</module>
-        <module>pipeline.developer-examples.clientside-element-mvc-runner</module>
         <module>pipeline.developer-examples.usage-sharing</module>
     </modules>
     <properties>

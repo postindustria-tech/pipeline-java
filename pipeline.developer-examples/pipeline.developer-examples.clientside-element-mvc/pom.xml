@@ -87,7 +87,12 @@
                         <warSourceDirectory>src/main/webapp</warSourceDirectory>
                         <warName>SimpleClientSideEngineExample</warName>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
+                        <attachClasses>true</attachClasses>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
                 </plugin>
             </plugins>
         </pluginManagement>
