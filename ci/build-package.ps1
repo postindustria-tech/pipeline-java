@@ -10,7 +10,6 @@ param(
     [Hashtable]$Keys
 )
 
-Write-Output "Entered $RepoName/ci/build-package.ps1"
 
 ./java/build-package.ps1 `
     -RepoName $RepoName `
