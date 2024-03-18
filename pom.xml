@@ -327,7 +327,7 @@
                     <keystore>NONE</keystore>
                     <storetype>AzureKeyVault</storetype>
                     <alias>${keyvaultCertName}</alias>
-                    <storepass></storepass>
+                    <storepass>""</storepass>
                     <providerName>AzureKeyVault</providerName>
                     <providerClass>com.azure.security.keyvault.jca.KeyVaultJcaProvider</providerClass>
                     <arguments>
