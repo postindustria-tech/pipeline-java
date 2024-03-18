@@ -322,6 +322,7 @@
                 </execution>
                 </executions>
                 <configuration>
+                    <verbose>true</verbose>
                     <skip>${skippackagesign}</skip>
                     <keystore>NONE</keystore>
                     <storetype>AzureKeyVault</storetype>
