@@ -211,6 +211,15 @@
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>${nexus-staging-maven-plugin.version}</version>
                 <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <serverId>${publishrepository.id}</serverId>
                     <nexusUrl>${ossrh.baseurl}</nexusUrl>
@@ -309,12 +318,18 @@
                 <artifactId>maven-jarsigner-plugin</artifactId>
                 <version>${maven-jarsigner-plugin.version}</version>
                 <executions>
-                <execution>
-                    <id>sign</id>
-                    <goals>
-                    <goal>sign</goal>
-                    </goals>
-                </execution>
+                    <execution>
+                        <id>sign</id>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>verify</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
                 </executions>
                 <configuration>
                     <skip>${skippackagesign}</skip>
