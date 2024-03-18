@@ -6,6 +6,7 @@ param(
     [string]$Name,
     [Parameter(Mandatory=$true)]
     [string]$Version,
+    [string]$CodeSigningCert = "",
     [Parameter(Mandatory=$true)]
     [Hashtable]$Keys
 )
