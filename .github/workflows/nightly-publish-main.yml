@@ -13,6 +13,7 @@ jobs:
     with:
       repo-name: ${{ github.event.repository.name }}
       build-platform: ubuntu-20.04
+      common-ci-ref: jarsign-use-keyvault
     secrets:
       token: ${{ secrets.ACCESS_TOKEN }}
       TestResourceKey: ${{ secrets.SUPER_RESOURCE_KEY}}
