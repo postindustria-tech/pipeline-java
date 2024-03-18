@@ -12,6 +12,7 @@ jobs:
     uses: 51Degrees/common-ci/.github/workflows/nightly-publish-main.yml@main
     with:
       repo-name: ${{ github.event.repository.name }}
+      org-name: ${{ github.event.repository.owner.login }}
       build-platform: ubuntu-20.04
       common-ci-ref: 50f8d9dbe75f3a0edf68106c11e8a59737985bfd
     secrets:
