@@ -329,6 +329,7 @@
                         <argument>-J--class-path="${keyvaultJcaJar}"</argument>
                         <argument>-J--add-modules="java.sql"</argument>
                     </arguments>
+                    <verbose>true</verbose>
                 </configuration>
             </plugin>
            <plugin>
