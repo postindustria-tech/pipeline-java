@@ -320,7 +320,10 @@
                             <fileset>
                                 <directory>.</directory>
                                 <include>**/target/**/*.jar</include>
-                                <exclude>**/*-sources.jar</exclude>
+                                <excludes>
+                                    <exclude>**/*-sources.jar</exclude>
+                                    <exclude>**/*-javadoc.jar</exclude>
+                                </excludes>
                             </fileset>
 
                             <storetype>AZUREKEYVAULT</storetype>
