@@ -201,22 +201,20 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.1.1</version>
-            </plugin>
 
             </plugins>
         </pluginManagement>
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.1.1</version>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven-plugin.version}</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <altDeploymentRepository>local::file:${user.home}/.m2/staging</altDeploymentRepository>
+                    <serverId>${publishrepository.id}</serverId>
+                    <nexusUrl>${ossrh.baseurl}</nexusUrl>
+                    <altStagingDirectory>${user.home}/.m2</altStagingDirectory>
                 </configuration>
             </plugin>
             <plugin>
@@ -307,33 +305,29 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>net.jsign</groupId>
-                <artifactId>jsign-maven-plugin</artifactId>
-                <version>6.0</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jarsigner-plugin</artifactId>
+                <version>${maven-jarsigner-plugin.version}</version>
                 <executions>
-                    <execution>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                        <configuration>
-                            <skip>false</skip>
-                            <fileset>
-                                <directory>.</directory>
-                                <include>**/target/**/*.jar</include>
-                                <excludes>
-                                    <exclude>**/*-sources.jar</exclude>
-                                    <exclude>**/*-javadoc.jar</exclude>
-                                    <exclude>**/*-tests.jar</exclude>
-                                </excludes>
-                            </fileset>
-
-                            <storetype>AZUREKEYVAULT</storetype>
-                            <keystore>${keyvaultVaultName}</keystore>
-                            <storepass>${keyvaultAccessToken}</storepass>
-                            <alias>${keyvaultCertName}</alias>
-                        </configuration>
-                    </execution>
+                <execution>
+                    <id>sign</id>
+                    <goals>
+                    <goal>sign</goal>
+                    </goals>
+                </execution>
                 </executions>
+                <configuration>
+                    <skip>${skippackagesign}</skip>
+                    <keystore>${keyvaultVaultName}</keystore>
+                    <storetype>AZUREKEYVAULT</storetype>
+                    <alias>${keyvaultCertName}</alias>
+                    <storepass>${keyvaultAccessToken}</storepass>
+                    <providerClass>net.jsign.jca.JsignJcaProvider</providerClass>
+                    <arguments>
+                        <argument>-J--class-path="${keyvaultJcaJar}"</argument>
+                        <argument>-J--add-modules="java.sql"</argument>
+                    </arguments>
+                </configuration>
             </plugin>
            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
