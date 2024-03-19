@@ -322,6 +322,7 @@
                     <skip>false</skip>
                     <keystore>NONE</keystore>
                     <storetype>AZUREKEYVAULT</storetype>
+                    <alias>${keyvaultCertName}</alias>
                     <storepass>${keyvaultAccessToken}</storepass>
                     <providerClass>net.jsign.jca.JsignJcaProvider</providerClass>
                     <providerArg>${keyvaultVaultName}</providerArg>
