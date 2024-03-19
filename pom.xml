@@ -316,7 +316,7 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            <skip>${skippackagesign}</skip>
+                            <skip>false</skip>
                             <fileset>
                                 <directory>target</directory>
                                 <includes>
