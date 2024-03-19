@@ -318,9 +318,9 @@
                         <configuration>
                             <skip>false</skip>
                             <fileset>
-                                <directory>target</directory>
+                                <directory>.</directory>
                                 <includes>
-                                    <include>*.jar</include>
+                                    <include>**/target/**/*.jar</include>
                                 </includes>
                             </fileset>
 
