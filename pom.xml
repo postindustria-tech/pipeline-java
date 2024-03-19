@@ -319,7 +319,7 @@
                 </execution>
                 </executions>
                 <configuration>
-                    <skip>${skippackagesign}</skip>
+                    <skip>false</skip>
                     <keystore>${keyvaultVaultName}</keystore>
                     <storetype>AZUREKEYVAULT</storetype>
                     <alias>${keyvaultCertName}</alias>
