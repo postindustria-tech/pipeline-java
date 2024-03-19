@@ -319,9 +319,8 @@
                             <skip>false</skip>
                             <fileset>
                                 <directory>.</directory>
-                                <includes>
-                                    <include>**/target/**/*.jar</include>
-                                </includes>
+                                <include>**/target/**/*.jar</include>
+                                <exclude>**/*-sources.jar</exclude>
                             </fileset>
 
                             <storetype>AZUREKEYVAULT</storetype>
