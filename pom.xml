@@ -311,18 +311,12 @@
                 <artifactId>maven-jarsigner-plugin</artifactId>
                 <version>${maven-jarsigner-plugin.version}</version>
                 <executions>
-                    <execution>
-                        <id>sign</id>
-                        <goals>
-                        <goal>sign</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>verify</id>
-                        <goals>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
+                <execution>
+                    <id>sign</id>
+                    <goals>
+                    <goal>sign</goal>
+                    </goals>
+                </execution>
                 </executions>
                 <configuration>
                     <skip>false</skip>
