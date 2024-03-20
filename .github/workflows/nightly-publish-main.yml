@@ -14,7 +14,7 @@ jobs:
       repo-name: ${{ github.event.repository.name }}
       org-name: ${{ github.event.repository.owner.login }}
       build-platform: ubuntu-20.04
-      common-ci-ref: a2da251f715c23fa315358fc7a7266954f0c9949
+      common-ci-ref: cb0cf797919fd71471a91ec6b3c52ded439bc00c
     secrets:
       token: ${{ secrets.ACCESS_TOKEN }}
       TestResourceKey: ${{ secrets.SUPER_RESOURCE_KEY}}
